@@ -1,0 +1,302 @@
+// =======================================================================
+// Configuration
+// =======================================================================
+
+// Imports
+// =======================================================================
+
+@import "bourbon/bourbon";
+@import "font-awesome/font-awesome";
+@import "reset";
+@import "fonts";
+@import "animate";
+
+// Variables
+// =======================================================================
+
+// Base colors
+$white: #fff;
+$black: #000;
+
+// Type
+$text: $white;
+
+// Background
+$bg-home: #7acec3;
+$bg-works: #ebb240;
+
+// Body styles
+$bg-home--0: lighten($bg-home, 9);
+$bg-home--1: lighten($bg-home, 4);
+$bg-home--2: lighten($bg-home, 7);
+$bg-home--3: lighten($bg-home, 1);
+$bg-home--4: lighten($bg-home, 6);
+$bg-home--5: darken($bg-home, 2);
+$bg-home--6: darken($bg-home, 8);
+$bg-home--7: darken($bg-home, 4);
+$bg-home--8: darken($bg-home, 7);
+$bg-home--9: darken($bg-home, 5);
+
+$bg-works--0: lighten($bg-works, 9);
+$bg-works--1: lighten($bg-works, 4);
+$bg-works--2: lighten($bg-works, 7);
+$bg-works--3: lighten($bg-works, 1);
+$bg-works--4: lighten($bg-works, 6);
+$bg-works--5: darken($bg-works, 2);
+$bg-works--6: darken($bg-works, 8);
+$bg-works--7: darken($bg-works, 4);
+$bg-works--8: darken($bg-works, 7);
+$bg-works--9: darken($bg-works, 5);
+
+$styles-home: $bg-home--0 $bg-home--1 $bg-home--2 $bg-home--3 $bg-home--4 $bg-home--5 $bg-home--6 $bg-home--7 $bg-home--8 $bg-home--9;
+$styles-works: $bg-works--0 $bg-works--1 $bg-works--2 $bg-works--3 $bg-works--4 $bg-works--5 $bg-works--6 $bg-works--7 $bg-works--8 $bg-works--9;
+
+// Animation
+// =======================================================================
+
+@keyframes linea {
+  0% {
+    transform: rotate(-45deg) scale(0);
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+}
+
+// =======================================================================
+// Main structure
+// =======================================================================
+
+// Loading
+// =======================================================================
+
+.loading {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .5s ease;
+}
+
+.is-loading .loading {
+  opacity: 1;
+}
+
+
+// Base and resets
+// =======================================================================
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  color: $text;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  height: 100vh;
+  position: relative;
+  padding: 2em;
+  transition: background-color .5s ease;
+  
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: rotate(-45deg);
+    width: 2px;
+    height: 100%;
+    background-color: transparentize($text, .5);
+    animation: linea 2s ease;
+    animation-iteration-count: 1;
+  }
+}
+
+// Navigation
+// =======================================================================
+
+.logo {
+  display: block;
+}
+
+nav {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+  text-align: right;
+  
+  li {
+    margin-bottom: 1em;
+
+    a {
+      animation: fadeInDown .2s ease;
+      font-size: 2em;
+      font-weight: 400;
+      color: $text;
+      display: block;
+      backface-visibility: hidden;
+      text-transform: uppercase;
+      transition: transform .3s ease-in-out, opacity .3s ease;
+      
+      &:hover {
+        transform: translate3d(-.5em, 0, 0);
+        opacity: .7;
+      }
+    }
+  }
+}
+
+@for $i from 1 through 3 {
+    nav li:nth-child(#{$i}) a {
+        animation-delay: (.2s * #{$i} + .5s);
+    }
+}
+
+// Active links
+.section-works .menu-works,
+.section-about .menu-about,
+.section-contact .menu-contact {
+  font-size: 4em;
+
+  // reset hover
+  &:hover {
+    transform: translate3d(0, 0, 0);
+    opacity: .9;
+  }
+}
+
+// Container
+// =======================================================================
+
+main {
+  p {
+    font-size: 1.4em;
+    margin: .5em 0;
+  }
+}
+
+// Modifier: HOME
+// =======================================================================
+
+.section-home {
+  background-color: $bg-home;
+
+  main {
+    //border: 1px solid;
+    position: absolute;
+    bottom: 2em;
+
+    h1 {
+      color: $text;
+      font-size: 6em;
+      letter-spacing: -.1em;
+      text-transform: uppercase;
+      margin-bottom: .3em;
+      font-weight: 400;
+      position: relative;
+      width: auto;
+      display: inline-block;
+      transition: letter-spacing .5s ease-in-out, color .5s ease;
+      
+      &:after {
+        content: '';
+        width: 0;
+        height: 2px;
+        display: block;
+        background-color: #a3f7ec;
+        transition: width .5s ease;
+      }
+      
+      &:hover {
+        letter-spacing: -.06em;
+        color: #e0fbf8;
+        &:after { width: 100%; }
+      }
+    }
+
+    .tagline {
+      font-size: 1.6em;
+      font-weight: 400;
+      margin-top: 1em;
+    }
+    
+    .social {
+      margin-top: 2em;
+      li {
+        display: inline-block;
+        margin-right: 1em;
+        
+        a {
+          color: transparentize($text, .5);
+          display: block;
+          font-size: 1.4em;
+          transition: transform .3s ease,
+            color .3s ease;
+          
+          &:hover {
+            color: transparentize($text, .2);
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Modifier: WORKS
+// =======================================================================
+
+.section-works {
+  background-color: $bg-works;
+
+}
+
+// Body styles
+// =======================================================================
+
+// Home loop
+@for $i from 1 through length($styles-home) {
+    .bg-home--#{$i} {
+        background-color: nth($styles-home, $i);
+    }
+}
+
+// Works loop
+@for $i from 1 through length($styles-works) {
+    .bg-works--#{$i} {
+        background-color: nth($styles-works, $i);
+    }
+}
+
+// =======================================================================
+// Media queries
+// =======================================================================
+
+@media screen and (max-width: 970px) {
+  body:before {
+    background-color: transparentize($text, .8);
+  }
+}
+
+@media screen and (max-width: 420px) {
+  main h1 a {
+    font-size: 4em;
+  }
+  
+  nav {
+    position: fixed;
+    background-color: $bg-home;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
