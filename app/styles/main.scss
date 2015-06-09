@@ -14,6 +14,16 @@
 // Variables
 // =======================================================================
 
+// Breakpoints
+$screen-xs-min: 480px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
 // Base colors
 $white: #fff;
 $black: #000;
@@ -111,7 +121,7 @@ body {
     display: block;
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 70%;
     transform: rotate(-45deg);
     width: 2px;
     height: 100%;
@@ -124,41 +134,49 @@ body {
 // Navigation
 // =======================================================================
 
-.logo {
-  display: block;
-}
-
-nav {
+header {
+  text-align: right;
   position: absolute;
   top: 2em;
   right: 2em;
-  text-align: right;
-  
-  li {
-    margin-bottom: 1em;
 
-    a {
-      animation: fadeInDown .2s ease;
-      font-size: 2em;
-      font-weight: 400;
-      color: $text;
-      display: block;
-      backface-visibility: hidden;
-      text-transform: uppercase;
-      transition: transform .3s ease-in-out, opacity .3s ease;
-      
-      &:hover {
-        transform: translate3d(-.5em, 0, 0);
-        opacity: .7;
+  .logo {
+    display: block;
+    margin-bottom: 2em;
+
+    img {
+      @extend .animated;
+      width: 6em;
+      height: auto;
+    }
+
+    &:hover img {
+      animation: pulse .8s ease;
+    }
+  }
+  
+  nav {  
+    li {
+      margin-bottom: 1em;
+      animation: fadeInDown .8s ease;
+      @extend .animated;
+
+      a {
+        font-size: 2em;
+        font-weight: 400;
+        color: $text;
+        display: block;
+        backface-visibility: hidden;
+        text-transform: uppercase;
+        transition: transform .3s ease-in-out, opacity .3s ease;
+        
+        &:hover {
+          transform: translate3d(-.5em, 0, 0);
+          opacity: .7;
+        }
       }
     }
   }
-}
-
-@for $i from 1 through 3 {
-    nav li:nth-child(#{$i}) a {
-        animation-delay: (.2s * #{$i} + .5s);
-    }
 }
 
 // Active links
@@ -191,61 +209,60 @@ main {
   background-color: $bg-home;
 
   main {
-    //border: 1px solid;
     position: absolute;
     bottom: 2em;
+  }
 
-    h1 {
-      color: $text;
-      font-size: 6em;
-      letter-spacing: -.1em;
-      text-transform: uppercase;
-      margin-bottom: .3em;
-      font-weight: 400;
-      position: relative;
-      width: auto;
-      display: inline-block;
-      transition: letter-spacing .5s ease-in-out, color .5s ease;
-      
-      &:after {
-        content: '';
-        width: 0;
-        height: 2px;
-        display: block;
-        background-color: #a3f7ec;
-        transition: width .5s ease;
-      }
-      
-      &:hover {
-        letter-spacing: -.06em;
-        color: #e0fbf8;
-        &:after { width: 100%; }
-      }
-    }
-
-    .tagline {
-      font-size: 1.6em;
-      font-weight: 400;
-      margin-top: 1em;
+  h1 {
+    color: $text;
+    font-size: 6em;
+    letter-spacing: -.1em;
+    text-transform: uppercase;
+    margin-bottom: .3em;
+    font-weight: 400;
+    position: relative;
+    width: auto;
+    display: inline-block;
+    transition: letter-spacing .5s ease-in-out, color .5s ease;
+    
+    &:after {
+      content: '';
+      width: 0;
+      height: 2px;
+      display: block;
+      background-color: #a3f7ec;
+      transition: width .5s ease;
     }
     
-    .social {
-      margin-top: 2em;
-      li {
-        display: inline-block;
-        margin-right: 1em;
+    &:hover {
+      letter-spacing: -.06em;
+      color: #e0fbf8;
+      &:after { width: 100%; }
+    }
+  }
+
+  .tagline {
+    font-size: 1.6em;
+    font-weight: 400;
+    margin-top: 1em;
+  }
+
+  .social {
+    margin-top: 2em;
+    li {
+      display: inline-block;
+      margin-right: 1em;
+      
+      a {
+        color: transparentize($text, .5);
+        display: block;
+        font-size: 1.4em;
+        transition: transform .3s ease,
+          color .3s ease;
         
-        a {
-          color: transparentize($text, .5);
-          display: block;
-          font-size: 1.4em;
-          transition: transform .3s ease,
-            color .3s ease;
-          
-          &:hover {
-            color: transparentize($text, .2);
-            transform: scale(1.1);
-          }
+        &:hover {
+          color: transparentize($text, .2);
+          transform: scale(1.1);
         }
       }
     }
@@ -281,15 +298,21 @@ main {
 // Media queries
 // =======================================================================
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: $screen-sm-max) {
   body:before {
     background-color: transparentize($text, .8);
   }
 }
 
-@media screen and (max-width: 420px) {
-  main h1 a {
-    font-size: 4em;
+@media screen and (max-width: $screen-xs-max) {
+  body:before {
+    left: 80%;
+    top: -10%;
+  }
+
+  .section-home h1 {
+    font-size: 5em;
+    line-height: .8em;
   }
   
   nav {
