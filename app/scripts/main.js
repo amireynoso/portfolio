@@ -70,6 +70,7 @@ var currentNum = 0;
 		}
 	});
 
+	// SVG image replace
 	$('img.svg').each(function(){
 		var $img = $(this);
 		var imgID = $img.attr('id');
@@ -77,22 +78,21 @@ var currentNum = 0;
 		var imgURL = $img.attr('src');
 
 		$.get(imgURL, function(data) {
-			// Get the SVG tag, ignore the rest
 			var $svg = $(data).find('svg');
-			// Add replaced image's ID to the new SVG
 			if (typeof imgID !== 'undefined') {
 				$svg = $svg.attr('id', imgID);
 			}
-			// Add replaced image's classes to the new SVG
 			if (typeof imgClass !== 'undefined') {
 				$svg = $svg.attr('class', imgClass+' replaced-svg');
 			}
-			// Remove any invalid XML tags as per http://validator.w3.org
 			$svg = $svg.removeAttr('xmlns:a');
-			// Replace image with new SVG
 			$img.replaceWith($svg);
 		});
 	});
+
+	if( isSection('contact') ) {
+		$('.email').text(getCodedEmail());
+	}
 
 })(jQuery);
 
@@ -127,4 +127,27 @@ function getUniqueRandom(min, max) {
 
 function getNewClass() {
 	return 'bg-' + getSection() + '--' + getUniqueRandom(0, 9);
+}
+
+function getCodedEmail() {
+    // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+    // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+    // This code is freeware provided these four comment lines remain intact
+    // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+	var coded = "yT5Duia1j1@VTy5h.X1T",
+		key   = "24rvYA16qhyVRjSckBeOwzDIxPb7ZKi8nHLXFmutfMpdEN93oJ5lagUsWTCGQ0",
+		shift = coded.length,
+		link  = "";
+
+    for (i = 0; i < coded.length; i++) {
+        if (key.indexOf(coded.charAt(i)) == -1) {
+            ltr = coded.charAt(i)
+            link += (ltr)
+        } else {
+            ltr = (key.indexOf(coded.charAt(i)) - shift + key.length) % key.length
+            link += (key.charAt(ltr))
+        }
+    }
+
+    return link;
 }
