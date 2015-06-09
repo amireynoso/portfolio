@@ -35,6 +35,12 @@ $text: $white;
 $bg-home: #7acec3;
 $bg-works: #ebb240;
 
+// Menu
+$menu-size: 2.5em;
+$menu-thickness: .3em;
+$menu-gap: .4em;
+$menu-color: transparentize($white, .5);
+
 // Body styles
 $bg-home--0: lighten($bg-home, 9);
 $bg-home--1: lighten($bg-home, 4);
@@ -108,26 +114,41 @@ a {
 }
 
 body {
+  overflow-x: hidden; 
   color: $text;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  height: 100vh;
   position: relative;
   padding: 2em;
   transition: background-color .5s ease;
   
+  @media screen and (min-width: $screen-sm-min) {
+    min-height: 100vh;
+  }
+
   &:before {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: 70%;
     transform: rotate(-45deg);
     width: 2px;
-    height: 100%;
-    background-color: transparentize($text, .5);
     animation: linea 2s ease;
     animation-iteration-count: 1;
+    background-color: transparentize($text, .8);
+    left: 65%;
+    top: -2%;
+    height: 50%;
+
+    @media screen and (min-width: $screen-sm-min) {
+      top: 0;
+      left: 70%;
+      height: 80%;
+    }
+
+    @media screen and (min-width: $screen-sm-min) {
+      height: 100%;
+      background-color: transparentize($text, .5);
+    }
   }
 }
 
@@ -137,25 +158,101 @@ body {
 header {
   text-align: right;
   position: absolute;
-  top: 2em;
-  right: 2em;
+  padding: 2em;
+  top: 0;
+  right: 0;
+  width: 100%;
+  @extend clearfix;
 
   .logo {
     display: block;
     margin-bottom: 2em;
+    z-index: 2;
+    @media screen and (max-width: $screen-xs-max) { float: right; }
 
-    img {
+    svg {
       @extend .animated;
       width: 6em;
       height: auto;
+
+      path { fill: $white; }
     }
 
-    &:hover img {
+    &:hover svg {
       animation: pulse .8s ease;
     }
   }
+
+  .menu-trigger {
+    float: left;
+    margin-top: 2em;
+
+    @media screen and (min-width: $screen-sm-min) {
+      display: none;
+    }    
+
+    *,
+    *:before,
+    *:after { transition: all .3s ease; }
+    input {
+        display: none;
+    }
+    label {
+        display: block;
+        width: $menu-size;
+        height: ($menu-thickness * 3 + $menu-gap * 2);
+        position: relative;
+        span {
+            position: relative;
+            top: $menu-thickness + $menu-gap;
+            &, &:before, &:after {
+                display: block;
+                background: $menu-color;
+                width: $menu-size;
+                height: $menu-thickness;
+                border-radius: $menu-thickness / 2;
+            }
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+            }
+            &:before {
+                bottom: $menu-gap + $menu-thickness;
+            }
+            &:after {
+                top: $menu-gap + $menu-thickness;
+            }
+        }
+    }
+    :checked ~ label span {
+        width: 0;
+        &:before {
+            transform: rotate(45deg);
+            bottom: 0;
+        }
+        &:after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+    }
+}
   
-  nav {  
+
+  nav {
+    @media screen and (max-width: $screen-xs-max) {
+      position: fixed;
+      z-index: 1;
+      background-color: $white;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      text-align: center;
+      display: none;
+      transition: background-color .5s ease;
+    }
+
     li {
       margin-bottom: 1em;
       animation: fadeInDown .8s ease;
@@ -196,6 +293,10 @@ header {
 // =======================================================================
 
 main {
+  @media screen and (max-width: $screen-xs-max) {
+    margin-top: 6em;
+  }
+
   p {
     font-size: 1.4em;
     margin: .5em 0;
@@ -209,13 +310,14 @@ main {
   background-color: $bg-home;
 
   main {
-    position: absolute;
-    bottom: 2em;
+    @media screen and (min-width: $screen-sm-min) {
+      position: absolute;
+      bottom: 2em;
+    }
   }
 
   h1 {
     color: $text;
-    font-size: 6em;
     letter-spacing: -.1em;
     text-transform: uppercase;
     margin-bottom: .3em;
@@ -224,7 +326,14 @@ main {
     width: auto;
     display: inline-block;
     transition: letter-spacing .5s ease-in-out, color .5s ease;
+    font-size: 4em;
+    line-height: .8em;
     
+    @media screen and (min-width: $screen-sm-min) {
+      font-size: 6em;
+      line-height: 1;
+    }
+
     &:after {
       content: '';
       width: 0;
@@ -298,28 +407,57 @@ main {
 // Media queries
 // =======================================================================
 
-@media screen and (max-width: $screen-sm-max) {
-  body:before {
-    background-color: transparentize($text, .8);
-  }
-}
+@media screen and (max-width: $screen-xs-max) { 
+  .nav-open {
+    nav {
+      display: block;
 
-@media screen and (max-width: $screen-xs-max) {
-  body:before {
-    left: 80%;
-    top: -10%;
-  }
+      ul {
+        margin-top: 50%;
+        li {
+          margin-bottom: 1.5em;
+          a { font-size: 3em; }
+        }
 
-  .section-home h1 {
-    font-size: 5em;
-    line-height: .8em;
-  }
-  
-  nav {
-    position: fixed;
-    background-color: $bg-home;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+      }
+    }
+
+    .logo {
+      position: absolute;
+      right: 2em; // simulate position of logo
+    }
+
+    .menu-trigger {
+      position: absolute;
+      z-index: 2;
+    }
+
+    &.section-home {
+      header {
+        svg path {
+          fill: $bg-home;
+        }
+
+        nav a { color: $bg-home; }
+
+        .menu-trigger :checked ~ label span,
+        .menu-trigger :checked ~ label span:before,
+        .menu-trigger :checked ~ label span:after { background-color: $bg-home; }
+      }
+    }
+
+    &.section-works {
+      header {
+        svg path {
+          fill: $bg-works;
+        }
+
+        nav a { color: $bg-works; }
+
+        .menu-trigger :checked ~ label span,
+        .menu-trigger :checked ~ label span:before,
+        .menu-trigger :checked ~ label span:after { background-color: $bg-works; }
+      }
+    }
   }
 }
