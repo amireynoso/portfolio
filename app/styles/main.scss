@@ -15,67 +15,93 @@
 // =======================================================================
 
 // Breakpoints
-$screen-xs-min: 480px;
-$screen-sm-min: 768px;
-$screen-md-min: 992px;
-$screen-lg-min: 1200px;
+$screen-xs-min  : 480px;
+$screen-sm-min  : 768px;
+$screen-md-min  : 992px;
+$screen-lg-min  : 1200px;
 
-$screen-xs-max: ($screen-sm-min - 1);
-$screen-sm-max: ($screen-md-min - 1);
-$screen-md-max: ($screen-lg-min - 1);
+$screen-xs-max  : ($screen-sm-min - 1);
+$screen-sm-max  : ($screen-md-min - 1);
+$screen-md-max  : ($screen-lg-min - 1);
 
 // Base colors
-$white: #fff;
-$black: #000;
+$white          : #fff;
+$black          : #000;
 
 // Type
-$text: $white;
+$text           : $white;
 
 // Background
-$bg-home: #7acec3;
-$bg-works: #ebb240;
+$bg-home        : #7acec3;
+$bg-works       : #ebb240;
+$bg-about       : #ff9b6d;
+$bg-contact     : #7f8490;
 
 // Menu
-$menu-size: 2.5em;
-$menu-thickness: .3em;
-$menu-gap: .4em;
-$menu-color: transparentize($white, .5);
+$menu-size      : 2.5em;
+$menu-thickness : .3em;
+$menu-gap       : .4em;
+$menu-color     : transparentize($white, .5);
 
 // Body styles
-$bg-home--0: lighten($bg-home, 9);
-$bg-home--1: lighten($bg-home, 4);
-$bg-home--2: lighten($bg-home, 7);
-$bg-home--3: lighten($bg-home, 1);
-$bg-home--4: lighten($bg-home, 6);
-$bg-home--5: darken($bg-home, 2);
-$bg-home--6: darken($bg-home, 8);
-$bg-home--7: darken($bg-home, 4);
-$bg-home--8: darken($bg-home, 7);
-$bg-home--9: darken($bg-home, 5);
+$bg-home--0     : lighten($bg-home, 9);
+$bg-home--1     : lighten($bg-home, 4);
+$bg-home--2     : lighten($bg-home, 7);
+$bg-home--3     : lighten($bg-home, 1);
+$bg-home--4     : lighten($bg-home, 6);
+$bg-home--5     : darken($bg-home, 2);
+$bg-home--6     : darken($bg-home, 8);
+$bg-home--7     : darken($bg-home, 4);
+$bg-home--8     : darken($bg-home, 7);
+$bg-home--9     : darken($bg-home, 5);
 
-$bg-works--0: lighten($bg-works, 9);
-$bg-works--1: lighten($bg-works, 4);
-$bg-works--2: lighten($bg-works, 7);
-$bg-works--3: lighten($bg-works, 1);
-$bg-works--4: lighten($bg-works, 6);
-$bg-works--5: darken($bg-works, 2);
-$bg-works--6: darken($bg-works, 8);
-$bg-works--7: darken($bg-works, 4);
-$bg-works--8: darken($bg-works, 7);
-$bg-works--9: darken($bg-works, 5);
+$bg-works--0    : lighten($bg-works, 9);
+$bg-works--1    : lighten($bg-works, 4);
+$bg-works--2    : lighten($bg-works, 7);
+$bg-works--3    : lighten($bg-works, 1);
+$bg-works--4    : lighten($bg-works, 6);
+$bg-works--5    : darken($bg-works, 2);
+$bg-works--6    : darken($bg-works, 8);
+$bg-works--7    : darken($bg-works, 4);
+$bg-works--8    : darken($bg-works, 7);
+$bg-works--9    : darken($bg-works, 5);
 
-$styles-home: $bg-home--0 $bg-home--1 $bg-home--2 $bg-home--3 $bg-home--4 $bg-home--5 $bg-home--6 $bg-home--7 $bg-home--8 $bg-home--9;
-$styles-works: $bg-works--0 $bg-works--1 $bg-works--2 $bg-works--3 $bg-works--4 $bg-works--5 $bg-works--6 $bg-works--7 $bg-works--8 $bg-works--9;
+$bg-about--0    : lighten($bg-about, 9);
+$bg-about--1    : lighten($bg-about, 4);
+$bg-about--2    : lighten($bg-about, 7);
+$bg-about--3    : lighten($bg-about, 1);
+$bg-about--4    : lighten($bg-about, 6);
+$bg-about--5    : darken($bg-about, 2);
+$bg-about--6    : darken($bg-about, 8);
+$bg-about--7    : darken($bg-about, 4);
+$bg-about--8    : darken($bg-about, 7);
+$bg-about--9    : darken($bg-about, 5);
+
+$bg-contact--0  : lighten($bg-contact, 9);
+$bg-contact--1  : lighten($bg-contact, 4);
+$bg-contact--2  : lighten($bg-contact, 7);
+$bg-contact--3  : lighten($bg-contact, 1);
+$bg-contact--4  : lighten($bg-contact, 6);
+$bg-contact--5  : darken($bg-contact, 2);
+$bg-contact--6  : darken($bg-contact, 8);
+$bg-contact--7  : darken($bg-contact, 4);
+$bg-contact--8  : darken($bg-contact, 7);
+$bg-contact--9  : darken($bg-contact, 5);
+
+$styles-home    : $bg-home--0 $bg-home--1 $bg-home--2 $bg-home--3 $bg-home--4 $bg-home--5 $bg-home--6 $bg-home--7 $bg-home--8 $bg-home--9;
+$styles-works   : $bg-works--0 $bg-works--1 $bg-works--2 $bg-works--3 $bg-works--4 $bg-works--5 $bg-works--6 $bg-works--7 $bg-works--8 $bg-works--9;
+$styles-about   : $bg-about--0 $bg-about--1 $bg-about--2 $bg-about--3 $bg-about--4 $bg-about--5 $bg-about--6 $bg-about--7 $bg-about--8 $bg-about--9;
+$styles-contact : $bg-contact--0 $bg-contact--1 $bg-contact--2 $bg-contact--3 $bg-contact--4 $bg-contact--5 $bg-contact--6 $bg-contact--7 $bg-contact--8 $bg-contact--9;
 
 // Animation
 // =======================================================================
 
 @keyframes linea {
   0% {
-    transform: rotate(-45deg) scale(0);
+    transform: rotate(45deg) scale(0);
   }
   100% {
-    transform: rotate(-45deg) scale(1);
+    transform: rotate(45deg) scale(1);
   }
 }
 
@@ -130,23 +156,23 @@ body {
     content: '';
     display: block;
     position: absolute;
-    transform: rotate(-45deg);
-    width: 2px;
+    transform: rotate(45deg);
+    height: 2px;
     animation: linea 2s ease;
     animation-iteration-count: 1;
     background-color: transparentize($text, .8);
-    left: 65%;
-    top: -2%;
-    height: 50%;
+    left: 50%;
+    top: 25%;
+    width: 50%;
 
     @media screen and (min-width: $screen-sm-min) {
-      top: 0;
-      left: 70%;
-      height: 80%;
+      left: 40%;
+      width: 50%;
     }
 
-    @media screen and (min-width: $screen-sm-min) {
-      height: 100%;
+    @media screen and (min-width: $screen-md-min) {
+      top: 35%;
+      left: 48%;
       background-color: transparentize($text, .5);
     }
   }
@@ -165,9 +191,9 @@ header {
   @extend clearfix;
 
   .logo {
-    display: block;
     margin-bottom: 2em;
     z-index: 2;
+    display: block;
     @media screen and (max-width: $screen-xs-max) { float: right; }
 
     svg {
@@ -253,6 +279,8 @@ header {
       transition: background-color .5s ease;
     }
 
+    @media screen and (min-width: $screen-sm-min) { float: right; }
+
     li {
       margin-bottom: 1em;
       animation: fadeInDown .8s ease;
@@ -289,6 +317,8 @@ header {
   }
 }
 
+.section-contact .menu-contact { font-size: 3.5em; }
+
 // Container
 // =======================================================================
 
@@ -296,10 +326,32 @@ main {
   @media screen and (max-width: $screen-xs-max) {
     margin-top: 6em;
   }
+  @media screen and (min-width: $screen-sm-min) {
+    position: absolute;
+    bottom: 2em;
+    max-width: 60%;
+  }
 
   p {
     font-size: 1.4em;
     margin: .5em 0;
+  }
+
+  .button {
+    display: inline-block;
+    text-transform: uppercase;
+    color: $text;
+    font-weight: 400;
+    margin: 1em 0;
+    border: 2px solid;
+    padding: .5em 1em;
+    transition: all .3s ease;
+    font-size: 1.3em;
+    @media screen and (min-width: $screen-sm-min) { font-size: 1.6em; }
+
+    &:hover {
+      color: rgba(0,0,0,.2);
+    }
   }
 }
 
@@ -309,10 +361,17 @@ main {
 .section-home {
   background-color: $bg-home;
 
-  main {
+  &:before {
+    left: 40%;
+    width: 50%;
+    top: 20%;
+
     @media screen and (min-width: $screen-sm-min) {
-      position: absolute;
-      bottom: 2em;
+      top: 35%;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      top: 40%;
     }
   }
 
@@ -386,6 +445,29 @@ main {
 
 }
 
+// Modifier: ABPOUT
+// =======================================================================
+
+.section-about {
+  background-color: $bg-about;
+
+  main {
+    position: static;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+}
+
+// Modifier: CONTACT
+// =======================================================================
+
+.section-contact {
+  background-color: $bg-contact;
+
+}
+
 // Body styles
 // =======================================================================
 
@@ -400,6 +482,20 @@ main {
 @for $i from 1 through length($styles-works) {
     .bg-works--#{$i} {
         background-color: nth($styles-works, $i);
+    }
+}
+
+// About loop
+@for $i from 1 through length($styles-about) {
+    .bg-about--#{$i} {
+        background-color: nth($styles-about, $i);
+    }
+}
+
+// Contact loop
+@for $i from 1 through length($styles-contact) {
+    .bg-contact--#{$i} {
+        background-color: nth($styles-contact, $i);
     }
 }
 
@@ -457,6 +553,34 @@ main {
         .menu-trigger :checked ~ label span,
         .menu-trigger :checked ~ label span:before,
         .menu-trigger :checked ~ label span:after { background-color: $bg-works; }
+      }
+    }
+
+    &.section-about {
+      header {
+        svg path {
+          fill: $bg-about;
+        }
+
+        nav a { color: $bg-about; }
+
+        .menu-trigger :checked ~ label span,
+        .menu-trigger :checked ~ label span:before,
+        .menu-trigger :checked ~ label span:after { background-color: $bg-about; }
+      }
+    }
+
+    &.section-contact {
+      header {
+        svg path {
+          fill: $bg-contact;
+        }
+
+        nav a { color: $bg-contact; }
+
+        .menu-trigger :checked ~ label span,
+        .menu-trigger :checked ~ label span:before,
+        .menu-trigger :checked ~ label span:after { background-color: $bg-contact; }
       }
     }
   }
