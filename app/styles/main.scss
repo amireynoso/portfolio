@@ -93,6 +93,28 @@ $styles-works   : $bg-works--0 $bg-works--1 $bg-works--2 $bg-works--3 $bg-works-
 $styles-about   : $bg-about--0 $bg-about--1 $bg-about--2 $bg-about--3 $bg-about--4 $bg-about--5 $bg-about--6 $bg-about--7 $bg-about--8 $bg-about--9;
 $styles-contact : $bg-contact--0 $bg-contact--1 $bg-contact--2 $bg-contact--3 $bg-contact--4 $bg-contact--5 $bg-contact--6 $bg-contact--7 $bg-contact--8 $bg-contact--9;
 
+// Mixins
+// =======================================================================
+
+@mixin logo {
+  margin-bottom: 2em;
+  z-index: 2;
+  display: block;
+  @media screen and (max-width: $screen-xs-max) { float: right; }
+
+  svg {
+    @extend .animated;
+    width: 6em;
+    height: auto;
+
+    path { fill: $white; }
+  }
+
+  &:hover svg {
+    animation: pulse .8s ease;
+  }
+}
+
 // Animation
 // =======================================================================
 
@@ -176,7 +198,6 @@ $styles-contact : $bg-contact--0 $bg-contact--1 $bg-contact--2 $bg-contact--3 $b
   opacity: 1;
 }
 
-
 // Base and resets
 // =======================================================================
 
@@ -238,25 +259,10 @@ header {
   top: 0;
   right: 0;
   width: 100%;
-  @extend clearfix;
+  @include clearfix;
 
   .logo {
-    margin-bottom: 2em;
-    z-index: 2;
-    display: block;
-    @media screen and (max-width: $screen-xs-max) { float: right; }
-
-    svg {
-      @extend .animated;
-      width: 6em;
-      height: auto;
-
-      path { fill: $white; }
-    }
-
-    &:hover svg {
-      animation: pulse .8s ease;
-    }
+    @include logo;
   }
 
   .menu-trigger {
@@ -689,5 +695,46 @@ main {
         .menu-trigger :checked ~ label span:after { background-color: $bg-contact; }
       }
     }
+  }
+}
+
+// Error page
+// =======================================================================
+
+.section-404 {
+  background-color: $bg-home;
+  text-align: center;
+  padding-top: 10%;
+  font-size: 1.4em;
+
+  h1 {
+    font-size: 4em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 1em 0;
+    
+    a {
+      color: darken($bg-home, 20%);
+      border-bottom: 1px solid transparent;
+      transition: color .5s ease, border .5s ease;
+
+      &:hover {
+        color: darken($bg-home, 25%);
+        border-color: lighten($bg-home, 10%);
+      }
+    }
+  }
+
+
+  &:before {
+    display: none;
+  }
+
+  .logo {
+    @include logo;
+    margin-bottom: .6em;
   }
 }
