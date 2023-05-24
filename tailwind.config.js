@@ -10,7 +10,8 @@ module.exports = {
       },
       colors: {
         shopify: "#95bf47",
-        meli: "#fff159",
+        "meli-yellow": "#fff159",
+        "meli-blue": "#252e7c",
         latcom: "#103078",
         datafactory: "#ae1a1f",
       },
