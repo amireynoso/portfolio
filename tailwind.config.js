@@ -14,6 +14,8 @@ module.exports = {
         meli: "#fff159",
         latcom: "#103078",
         datafactory: "#ae1a1f",
+        'pink-dark': '#802453',
+        'pink-light': '#c48dd1',
       },
     },
   },
