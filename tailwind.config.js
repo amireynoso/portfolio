@@ -6,12 +6,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
+        serif: ["Lora", ...defaultTheme.fontFamily.serif],
+        display: ['"Yeseva One"', ...defaultTheme.fontFamily.serif]
       },
       colors: {
         shopify: "#95bf47",
-        "meli-yellow": "#fff159",
-        "meli-blue": "#252e7c",
+        meli: "#fff159",
         latcom: "#103078",
         datafactory: "#ae1a1f",
       },

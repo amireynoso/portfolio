@@ -5,17 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ami Reynoso's resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩🏽‍💻</text></svg>"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Yeseva+One&display=swap"
+      rel="stylesheet"
+    />
     <link href="./styles.css" rel="stylesheet" />
   </head>
-  <body class="bg-slate-50 font-mono">
-    <main class="prose prose-stone max-w-[100ch] px-10 py-8">
+  <body class="bg-slate-50 font-serif">
+    <main class="prose prose-zinc max-w-[100ch] px-10 py-8">
       <header>
-        <h1>Ami Reynoso</h1>
         <section>
+          <h1 class="mb-2 font-display text-6xl font-normal">Ami Reynoso</h1>
+          <h2 class="mt-0 text-3xl italic text-zinc-500">
+            Engineering Manager
+          </h2>
+        </section>
+        <section class="text-lg">
           <p>
             👋 I'm a highly skilled
             <strong>Software Development Leader</strong> with over 10 years of
@@ -35,7 +46,7 @@
         </section>
         <section class="md:flex">
           <article class="flex-1">
-            <h4>What I’m looking for</h4>
+            <h4 class="uppercase">What I’m looking for</h4>
             <ul>
               <li>💖 Engineering Manager role</li>
               <li>🔍 Remote (AMER) or hybrid roles</li>
@@ -43,7 +54,7 @@
             </ul>
           </article>
           <article class="flex-1">
-            <h4>Contact</h4>
+            <h4 class="uppercase">Contact</h4>
             <ul>
               <li>
                 📧
@@ -69,20 +80,18 @@
         </section>
       </header>
       <section>
-        <h2>Experience</h2>
+        <h2 class="font-display">Experience</h2>
+        <h3 class="underline decoration-shopify underline-offset-2">Shopify</h3>
         <article>
-          <h3>Development Manager</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-shopify px-1 py-0.5 font-semibold text-white"
-                >Shopify</span
-              >&nbsp; Remote, Canada
-            </span>
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Development Manager</h4>
             <span>
               <time datetime="2022-05-01">May 2022</time> –
               <time datetime="2023-05-04">May 2023</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Remote, Canada
           </p>
           <ul class="text-base">
             <li>
@@ -114,19 +123,16 @@
             </li>
           </ul>
         </article>
-        <article>
-          <h3>Senior Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-shopify px-1 py-0.5 font-semibold text-white"
-                >Shopify</span
-              >&nbsp; Toronto / Remote, Canada
-            </span>
+        <article class="mt-8">
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Senior Developer</h4>
             <span>
               <time datetime="2019-10-01">Oct 2022</time> –
               <time datetime="2022-04-30">Apr 2022</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Toronto / Remote, Canada
           </p>
           <ul class="text-base">
             <li>
@@ -147,19 +153,16 @@
             </li>
           </ul>
         </article>
-        <article>
-          <h3>Frontend Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-shopify px-1 py-0.5 font-semibold text-white"
-                >Shopify</span
-              >&nbsp; Toronto, Canada
-            </span>
+        <article class="mt-8">
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Frontend Developer</h4>
             <span>
               <time datetime="2018-05-14">May 2018</time> –
               <time datetime="2019-09-30">Sep 2019</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Toronto, Canada
           </p>
           <ul class="text-base">
             <li>
@@ -179,19 +182,19 @@
             </li>
           </ul>
         </article>
+        <h3 class="underline decoration-meli underline-offset-2">
+          Mercado Libre
+        </h3>
         <article>
-          <h3>Project Lead</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-meli-yellow px-1 py-0.5 font-semibold text-meli-blue"
-                >Mercado Libre</span
-              >&nbsp; Buenos Aires, Argentina
-            </span>
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Project Lead</h4>
             <span>
               <time datetime="2018-01-01">Jan 2018</time> –
               <time datetime="2018-04-30">Apr 2018</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Buenos Aires, Argentina
           </p>
           <ul class="text-base">
             <li>
@@ -211,19 +214,16 @@
             </li>
           </ul>
         </article>
-        <article>
-          <h3>Senior Frontend Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-meli-yellow px-1 py-0.5 font-semibold text-meli-blue"
-                >Mercado Libre</span
-              >&nbsp; Buenos Aires, Argentina
-            </span>
+        <article class="mt-8">
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Senior Frontend Developer</h4>
             <span>
               <time datetime="2017-01-01">Jan 2017</time> –
               <time datetime="2017-12-31">Dec 2017</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Buenos Aires, Argentina
           </p>
           <ul class="text-base">
             <li>
@@ -238,19 +238,16 @@
             </li>
           </ul>
         </article>
-        <article>
-          <h3>Semi Senior Frontend Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-meli-yellow px-1 py-0.5 font-semibold text-meli-blue"
-                >Mercado Libre</span
-              >&nbsp; Buenos Aires, Argentina
-            </span>
+        <article class="mt-8">
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Semi Senior Frontend Developer</h4>
             <span>
               <time datetime="2015-07-15">Jul 2015</time> –
               <time datetime="2016-12-31">Dec 2016</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Buenos Aires, Argentina
           </p>
           <ul class="text-base">
             <li>
@@ -264,19 +261,17 @@
             </li>
           </ul>
         </article>
+        <h3 class="underline decoration-latcom underline-offset-2">Latcom</h3>
         <article>
-          <h3>Semi Senior Frontend Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-latcom px-1 py-0.5 font-semibold text-white"
-                >Latcom</span
-              >&nbsp; Buenos Aires, Argentina
-            </span>
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Semi Senior Frontend Developer</h4>
             <span>
               <time datetime="2014-04-01">Apr 2014</time> –
               <time datetime="2015-07-14">Jul 2015</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Buenos Aires, Argentina
           </p>
           <ul class="text-base">
             <li>
@@ -288,19 +283,19 @@
             </li>
           </ul>
         </article>
+        <h3 class="underline decoration-datafactory underline-offset-2">
+          DataFactory
+        </h3>
         <article>
-          <h3>Frontend Developer</h3>
-          <p class="flex flex-wrap justify-between text-base text-stone-600">
-            <span>
-              <span
-                class="rounded-sm bg-datafactory px-1 py-0.5 font-semibold text-white"
-                >DataFactory</span
-              >&nbsp; Buenos Aires, Argentina
-            </span>
+          <div class="flex flex-wrap items-start justify-between">
+            <h4 class="m-0 uppercase">Frontend Developer</h4>
             <span>
               <time datetime="2014-04-01">Apr 2014</time> –
               <time datetime="2015-07-14">Jul 2015</time>
             </span>
+          </div>
+          <p class="mb-3 mt-0 text-base italic text-stone-600">
+            Buenos Aires, Argentina
           </p>
           <ul class="text-base">
             <li>
